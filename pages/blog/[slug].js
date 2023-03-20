@@ -1,9 +1,10 @@
 import matter from "gray-matter";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
+import Layout from "../../components/Layout";
 
 const SingleBlog = (props) => {
   return (
-    <>
+    <Layout>
       <div>
         <div>
           <Image
@@ -20,7 +21,7 @@ const SingleBlog = (props) => {
           <ReactMarkdown>{props.markdownBody}</ReactMarkdown>
         </div>
       </div>
-    </>
+    </Layout>
   );
 };
 

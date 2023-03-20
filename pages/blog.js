@@ -1,10 +1,11 @@
 import matter from "gray-matter";
 import Image from "next/image";
 import Link from "next/link";
+import Layout from "../components/Layout";
 
 const Blog = (props) => {
   return (
-    <>
+    <Layout>
       <div>
         <div>
           <h1>Blog</h1>
@@ -31,7 +32,7 @@ const Blog = (props) => {
           ))}
         </div>
       </div>
-    </>
+    </Layout>
   );
 };
 
