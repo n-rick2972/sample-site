@@ -5,21 +5,21 @@ import Layout from "../components/Layout";
 const Index = () => {
   return (
     <Layout>
-      <div>
+      <div className="hero">
         <Image
           src="/images/index-hero.jpg"
           alt="hero"
           fill
           quality={90}
           priority
-        ></Image>
-        <div>
-          <h1>I'm Abe Hiroki!</h1>
+        />
+        <div className="textContainer">
+          <h1>I'm Abe Hiroski!</h1>
           <h3>JavaScript Developer</h3>
         </div>
       </div>
-      <div>
-        <div>
+      <div className="container">
+        <div className="profile">
           <div>
             <h2>JavaScript Nerd</h2>
             <p>
@@ -35,10 +35,20 @@ const Index = () => {
               Lorem Ipsum.
             </p>
           </div>
+          <div className="image-container">
+            <Image
+              src="/images/profile.jpg"
+              alt="hero"
+              fill
+              sizes="(max-width: 800px) 100vw"
+              quality={90}
+              priority
+            />
+          </div>
         </div>
-        <div>
+        <div className="skills">
           <h2>Skills</h2>
-          <div>
+          <div className="skillsContainer">
             <div>
               <img src="../images/javascript.svg" alt="javascript" />
               <span>JavaScript / 10 years</span>
@@ -57,7 +67,7 @@ const Index = () => {
             </div>
           </div>
         </div>
-        <div>
+        <div className="ctaButton">
           <Link href="/contact">Make It Happen!</Link>
         </div>
       </div>
