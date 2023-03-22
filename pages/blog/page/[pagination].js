@@ -1,10 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
-import Layout from "../components/Layout";
-import { getAllBlogs, blogsPerPage } from "../utils/mdQueries";
-import Pagination from "../components/Pagination";
+import Layout from "../../../components/layout";
+import Pagination from "../../../components/pagination";
+import { getAllBlogs, blogsPerPage } from "../../../utils/mdQueries";
 
-const Blog = (props) => {
+const PaginationPage = (props) => {
   return (
     <Layout>
       <div className="wrapper">
@@ -39,11 +39,31 @@ const Blog = (props) => {
     </Layout>
   );
 };
-export default Blog;
 
-export async function getStaticProps() {
+export default PaginationPage;
+
+export async function getStaticPaths() {
+  const { numberPages } = await getAllBlogs();
+
+  let paths = [];
+  Array.from({ length: numberPages })
+    .slice(0, 1)
+    .forEach((_, i) => paths.push(`/blog/page/${i + 2}`));
+
+  return {
+    paths: paths,
+    fallback: false,
+  };
+}
+
+export async function getStaticProps(context) {
   const { orderedBlogs, numberPages } = await getAllBlogs();
-  const limitedBlogs = orderedBlogs.slice(0, blogsPerPage);
+
+  const currentPage = context.params.pagination;
+  const limitedBlogs = orderedBlogs.slice(
+    (currentPage - 1) * blogsPerPage,
+    currentPage * blogsPerPage
+  );
 
   return {
     props: {
