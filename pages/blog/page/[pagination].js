@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
-import Layout from "../../../components/layout";
-import Pagination from "../../../components/pagination";
+import Layout from "../../../components/Layout";
+import Pagination from "../../../components/Pagination";
 import { getAllBlogs, blogsPerPage } from "../../../utils/mdQueries";
 import Seo from "../../../components/Seo";
 
