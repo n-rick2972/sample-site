@@ -1,10 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
 import Layout from "../components/Layout";
+import Seo from "../components/Seo";
 
 const Index = () => {
   return (
     <Layout>
+      <Seo title="Abe Hiroki" description="Abe Hirokiのポートフォリオサイトです" />
       <div className="hero">
         <Image
           src="/images/index-hero.jpg"

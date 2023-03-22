@@ -3,10 +3,12 @@ import Image from "next/image";
 import Layout from "../components/Layout";
 import { getAllBlogs, blogsPerPage } from "../utils/mdQueries";
 import Pagination from "../components/Pagination";
+import Seo from "../components/Seo";
 
 const Blog = (props) => {
   return (
     <Layout>
+      <Seo title="ブログ" description="これはブログページです" />
       <div className="wrapper">
         <div className="container">
           <h1>Blog</h1>

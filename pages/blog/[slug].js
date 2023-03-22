@@ -2,11 +2,16 @@ import Image from "next/image";
 import ReactMarkdown from "react-markdown";
 import Layout from "../../components/Layout";
 import PrevNext from "../../components/PrevNext";
+import Seo from "../../components/Seo";
 import { getAllBlogs, getSingleBlog } from "../../utils/mdQueries";
 
 const SingleBlog = (props) => {
   return (
     <Layout>
+      <Seo
+        title={props.frontmatter.title}
+        description={props.frontmatter.excerpt}
+      />
       <div className="img-container">
         <Image
           src={props.frontmatter.image}
